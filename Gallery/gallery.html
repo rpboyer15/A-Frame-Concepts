@@ -9,13 +9,12 @@
 <body>
   <a-scene>
     <a-entity scale='1 1 1'>
-        <a-image id='one' position='-4.333 .6 0' scale='.0003111 .0003111 .0003111' width='4288' height='3216' src='yosemite-1.jpg'>
-          <a-mouseenter id='enter' position='-4.0383 .6 .5514' rotation='0 39.58 0'></a-mouseenter>
-          <a-mouseleave id='leave' position='-4.333 .6 0' rotation='0 0 0'></a-mouseleave>
-        </a-image>
-
+      <a-image position='-4.333 .6 0' scale='.0003111 .0003111 .0003111' width='4288' height='3216' src='yosemite-1.jpg'>
+        <a-mouseenter position='-4.0383 .6 .5514' rotation='0 39.58 0'></a-mouseenter>
+        <a-mouseleave position='-4.333 .6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
       <a-image position='-1.963 .6 0' scale='.002577 .002577 .002577' width='1024' height='388' src='yosemite-7.jpg'>
-        <a-mouseenter position='-1.921 .6 .33076' rotation='0 9.769 0'></a-mouseenter>
+        <a-mouseenter position='-1.943 .6 .2291' rotation='0 10 0'></a-mouseenter>
         <a-mouseleave position='-1.963 .6 0' rotation='0 0 0'></a-mouseleave>
       </a-image>
       <a-image position='.4902 .6 0' scale='.0005590 .0005590 .0005590' width='2685' height='1789' src='yosemite-9.jpg'>
@@ -53,23 +52,7 @@
       </a-image>
     </a-entity>
 
-
-    <a-camera position='0 0 3.3'></a-camera>
+    <a-camera position='0 0 3.3' wasd-controls-enabled='false'></a-camera>
   </a-scene>
-  <script>
-    function initElement() {
-      var p = document.getElementById('one');
-      p.onclick = showAlert;
-    };
-
-    function showAlert() {
-      var obj = document.getElementById('one');
-      obj.setAttribute('position', {
-        x: 0,
-        y: 0,
-        z: 1
-      });
-    }
-  </script>
 </body>
 </html>
