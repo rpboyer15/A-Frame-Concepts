@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Displays • A-Frame</title>
+  <meta name='description' content='Displays • A-Frame'>
+  <script src='https://aframe.io/releases/latest/aframe.min.js'></script>
+</head>
+<body>
+  <a-scene>
+    <a-entity scale='1 1 1'>
+        <a-image id='one' position='-4.333 .6 0' scale='.0003111 .0003111 .0003111' width='4288' height='3216' src='yosemite-1.jpg'>
+          <!--<a-mouseenter id='enter' position='-4.0383 .6 .5514' rotation='0 39.58 0'></a-mouseenter>-->
+          <!--<a-click position='0 0 1' rotation='0 0 0' scale='.001 .001 .001'></a-click>-->
+          <!--<a-mouseleave id='leave' position='-4.333 .6 0' rotation='0 0 0'></a-mouseleave>-->
+        </a-image>
+
+      <a-image position='-1.963 .6 0' scale='.002577 .002577 .002577' width='1024' height='388' src='yosemite-7.jpg'>
+        <a-mouseenter position='-1.921 .6 .33076' rotation='0 9.769 0'></a-mouseenter>
+        <a-mouseleave position='-1.963 .6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='.4902 .6 0' scale='.0005590 .0005590 .0005590' width='2685' height='1789' src='yosemite-9.jpg'>
+        <a-mouseenter position='.4818 .6 .1121' rotation='0 -8.59 0'></a-mouseenter>
+        <a-mouseleave position='.4902 .6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='2.380 .6 0' scale='.0003291 .0003291 .0003291' width='4592' height='3039' src='yosemite-4.jpg'>
+        <a-mouseenter position='2.21896 .6 .465808' rotation='0 -38.0582 0'></a-mouseenter>
+        <a-mouseleave position='2.380 .6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='4.259 .6 0' scale='.0003657 .0003657 .0003657' width='4051' height='2742' src='yosemite-5.jpg'>
+        <a-mouseenter position='3.93579 .6 .611656' rotation='0 -55.6651 0'></a-mouseenter>
+        <a-mouseleave position='4.259 .6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+
+      <a-image position='-4.131 -.6 0' scale='.0002359 .0002359 .0002359' width='7368' height='4239' src='yosemite-6.jpg'>
+        <a-mouseenter position='-3.755 -.6 .7159' rotation='0 55.447 0'></a-mouseenter>
+        <a-mouseleave position='-4.131 -.6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='-2.129 -.6 0' scale='.0003531 .0003531 .0003531' width='4256' height='2832' src='yosemite-3.jpg'>
+        <a-mouseenter position='-1.995 -.6 .4288' rotation='0 34.798 0'></a-mouseenter>
+        <a-mouseleave position='-2.129 -.6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='.1213 -.6 0' scale='.0011173 .0011173 .0011173' width='2000' height='895' src='yosemite-8.jpg'>
+        <a-mouseenter position='.12054 -.6 .0413' rotation='0 -2.11844 0'></a-mouseenter>
+        <a-mouseleave position='.1213 -.6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='2.375 -.6 0' scale='.0007862 .0007862 .0007862' width='1920' height='1272' src='yosemite-2.jpg'>
+        <a-mouseenter position='2.2151 -.6 .46469' rotation='0 -38 0'></a-mouseenter>
+        <a-mouseleave position='2.375 -.6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+      <a-image position='4.256 -.6 0' scale='.0015504 .0015504 .0015504' width='960' height='645' src='yosemite-10.jpg'>
+        <a-mouseenter position='3.93174 -.6 .614526' rotation='0 -55.666 0'></a-mouseenter>
+        <a-mouseleave position='4.256 -.6 0' rotation='0 0 0'></a-mouseleave>
+      </a-image>
+    </a-entity>
+
+
+    <a-camera position='0 0 3.3'></a-camera>
+  </a-scene>
+  <script>
+    function initElement() {
+      var p = document.getElementById('one');
+      p.onclick = showAlert;
+    };
+
+    function showAlert() {
+      var obj = document.getElementById('one');
+      obj.setAttribute('position', {
+        x: 0,
+        y: 0,
+        z: 1
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Portal • A-Frame</title>
+  <meta name="description" content="Portal • A-Frame">
+  <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+</head>
+<body>
+  <a-assets>
+    <a-mixin id="light" geometry="primitive: sphere; radius: 1.5"
+             material="color: #f2f2f2; shader: flat"
+             light="color: #ffffff; distance: 10; intensity: 2; type: point">
+    </a-mixin>
+  </a-assets>
+  <a-scene>
+    <a-camera position='0 1.5 12' cursor-visible="false"></a-camera>
+    <a-entity light="type: ambient; color: #ffffff"></a-entity>
+
+    <a-entity scale='.3 .3 .3'>
+
+      <!-- Skysphere. -->
+      <a-entity geometry="primitive: sphere; radius: 300"
+                material="color: #111; shader: flat"
+                scale="-1 -1 -1"></a-entity>
+
+      <!-- Gate -->
+      <a-entity position='-13 4.5 3' rotation='0 0 0'>
+        <a-cube position='0 0 0' height='4' width='3' depth='3' color='#0d1926'></a-cube>
+        <a-entity mixin="light" position="0 3.5 0">
+          <a-animation attribute='position' to='0 4 0' dur='2000' fill='forwards' direction='alternate' repeat="indefinite"></a-animation>
+        </a-entity>
+        <a-cylinder position='0 -1.5 0' height='1' radius='3' color='#0d1926'></a-cylinder>
+      </a-entity>
+      <a-entity position='13 4.5 3' rotation='0 0 0'>
+        <a-cube position='0 0 0' height='4' width='3' depth='3' color='#0d1926'></a-cube>
+        <a-entity mixin="light" position="0 3.5 0">
+          <a-animation attribute='position' to='0 4 0' dur='2000' fill='forwards' direction='alternate' repeat="indefinite"></a-animation>
+        </a-entity>
+        <a-cylinder position='0 -1.5 0' height='1' radius='3' color='#0d1926'></a-cylinder>
+      </a-entity>
+
+      <!-- 1st floor -->
+      <a-entity position='0 0 0'>
+        <a-cube position='0 0 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 0 0' rotation='0 -45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 0 0' rotation='0 45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 0 0' rotation='0 90 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+      </a-entity>
+      <!-- 2nd floor -->
+      <a-entity position='0 0 0' scale='.887033 1 .887033'>
+        <a-cube position='0 1 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 1 0' rotation='0 -45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 1 0' rotation='0 45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 1 0' rotation='0 90 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+      </a-entity>
+      <!-- 3rd floor -->
+      <a-entity position='0 0 0' scale='.774065 1 .774065'>
+        <a-cube position='0 2 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 2 0' rotation='0 -45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 2 0' rotation='0 45 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+        <a-cube position='0 2 0' rotation='0 90 0' width='22' depth='53.1127' height=1 color='#0d1926'></a-cube>
+      </a-entity>
+
+
+      <!-- Portal Light -->
+      <a-entity geometry="primitive: circle; radius: 0.0000000001; segments: 80"
+               material="color: #00ffff; shader: flat"
+               light="color: #00ffff; distance: 10; intensity: 1; type: point"
+               position='0 13 0'
+               intensity='0'
+               distance='1'>
+               <a-animation attribute='geometry.radius' begin=3000 to='4' dur='7000'></a-animation>
+               <a-animation attribute='light.intensity' begin='4000' to='10' dur='7000'></a-animation>
+      </a-entity>
+
+      <!-- RINGS -->
+
+        <a-entity geometry="primitive: ring; radiusInner: 9; radiusOuter: 10; segmentsTheta: 160"
+             material="side: double; color: #ffd633"
+             position='0 2.2 0'
+             rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="0 -720 0"
+               dur="10000"
+               fill="forwards"></a-animation>
+        </a-entity>
+        <a-entity geometry="primitive: ring; radiusInner: 7; radiusOuter: 8; segmentsTheta: 160"
+             material="side: double; color: #ffd633"
+             position='0 2.2 0'
+             rotation='90 0 0'>
+           <a-animation attribute="position"
+                to="0 13 0"
+                begin='1000'
+                dur="10000"
+                fill="forwards"
+                easing='ease-out'></a-animation>
+            <a-animation attribute="rotation"
+                to="180 360 -180"
+                dur="10000"
+                fill="forwards"></a-animation>
+        </a-entity>
+
+
+        <!-- Ring Fragments -->
+        <!-- 1 -->
+        <a-entity position='0 2.2 0' rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="0 0 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+          <a-entity geometry="primitive: ring; radiusInner: 5; radiusOuter: 6; segmentsTheta: 80; thetaStart: 0; thetaLength: 30"
+               material="side: double; color: #ffd633">
+               <a-animation attribute="rotation"
+                   to="0 0 360"
+                   dur="53000"
+                   fill="forwards"
+                   easing='linear'
+                   repeat="indefinite"></a-animation>
+          </a-entity>
+        </a-entity>
+
+        <!-- 2 -->
+        <a-entity position='0 2.2 0' rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="0 0 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+          <a-entity geometry="primitive: ring; radiusInner: 5; radiusOuter: 6; segmentsTheta: 80; thetaStart: 110; thetaLength: 40"
+               material="side: double; color: #ffd633">
+               <a-animation attribute="rotation"
+                   to="0 0 360"
+                   dur="58000"
+                   fill="forwards"
+                   easing='linear'
+                   repeat="indefinite"></a-animation>
+          </a-entity>
+        </a-entity>
+
+        <!-- 3 -->
+        <a-entity position='0 2.2 0' rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="0 -360 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+          <a-entity geometry="primitive: ring; radiusInner: 5; radiusOuter: 6; segmentsTheta: 80; thetaStart: 300; thetaLength: 10"
+               material="side: double; color: #ffd633">
+               <a-animation attribute="rotation"
+                   to="0 0 360"
+                   dur="50000"
+                   fill="forwards"
+                   easing='linear'
+                   repeat="indefinite"></a-animation>
+          </a-entity>
+        </a-entity>
+
+        <!-- 4 -->
+        <a-entity position='0 2.2 0' rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="0 360 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+          <a-entity geometry="primitive: ring; radiusInner: 5; radiusOuter: 6; segmentsTheta: 80; thetaStart: 180; thetaLength: 20"
+               material="side: double; color: #ffd633">
+               <a-animation attribute="rotation"
+                   to="0 0 360"
+                   dur="55000"
+                   fill="forwards"
+                   easing='linear'
+                   repeat="indefinite"></a-animation>
+          </a-entity>
+        </a-entity>
+
+        <!-- 5 -->
+        <a-entity position='0 2.2 0' rotation='90 0 0'>
+          <a-animation attribute="position"
+               to="0 13 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+           <a-animation attribute="rotation"
+               to="-360 -360 0"
+               begin='1000'
+               dur="10000"
+               fill="forwards"
+               easing='ease-out'></a-animation>
+          <a-entity geometry="primitive: ring; radiusInner: 5; radiusOuter: 6; segmentsTheta: 80; thetaStart: 270; thetaLength: 20"
+               material="side: double; color: #ffd633">
+               <a-animation attribute="rotation"
+                   to="0 0 360"
+                   dur="56000"
+                   fill="forwards"
+                   easing='linear'
+                   repeat="indefinite"></a-animation>
+          </a-entity>
+        </a-entity>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
